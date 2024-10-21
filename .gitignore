@@ -1,0 +1,84 @@
+# -----------------------------
+# Java 17
+# -----------------------------
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Directory for local Java libraries
+lib/
+
+# Maven / Gradle specific files
+target/
+build/
+
+# -----------------------------
+# Angular CLI (version 18.2.9)
+# -----------------------------
+# Compiled output
+/dist
+/node_modules
+
+# Log files
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Compiled CSS / JS
+*.css
+*.js
+*.map
+
+# Angular CLI cache
+.angular/cache
+
+# -----------------------------
+# Visual Studio Code
+# -----------------------------
+# VS Code settings and workspace config
+.vscode/
+
+# -----------------------------
+# NetBeans
+# -----------------------------
+# NetBeans project files
+nbproject/private/
+nbbuild/
+dist/
+build/
+
+# -----------------------------
+# Operating System
+# -----------------------------
+# Windows Thumbnails and File Explorer settings
+Thumbs.db
+Desktop.ini
+
+# Windows Installer Files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# -----------------------------
+# IDE and Editor specific
+# -----------------------------
+# JetBrains IDE (IntelliJ, WebStorm, etc.)
+.idea/
+
+# MacOS specific (if needed for cross-platform projects)
+.DS_Store
+
+# -----------------------------
+# General excludes
+# -----------------------------
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Backup files
+*~ 
+*.bak
