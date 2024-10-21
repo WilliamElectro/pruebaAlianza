@@ -1,0 +1,93 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Menú lateral -->
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <div class="menu-header">
+      <img src="assets/logo-fiduciaria.png" alt="Logo" class="menu-logo">
+    </div>
+    <mat-nav-list>
+      <a mat-list-item (click)="selectView('clients')" [ngClass]="{ 'active-link': activeView === 'clients' }">
+        <mat-icon class="menu-icon">person</mat-icon>
+        <span class="menu-text">Clients</span>
+      </a>
+      <a mat-list-item (click)="selectView('construction')"
+        [ngClass]="{ 'active-link': activeView === 'construction' }">
+        <mat-icon>history</mat-icon>
+        <span class="menu-text">Clients look history</span>
+      </a>
+      <a mat-list-item (click)="selectView('construction')"
+        [ngClass]="{ 'active-link': activeView === 'construction' }">
+        <mat-icon>settings</mat-icon>
+        <span class="menu-text">Emergency PIN configuration</span>
+      </a>
+      <a mat-list-item (click)="selectView('construction')"
+        [ngClass]="{ 'active-link': activeView === 'construction' }">
+        <mat-icon>history</mat-icon>
+        <span class="menu-text">Emergency PIN history</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Contenido principal -->
+  <mat-sidenav-content>
+    <div *ngIf="activeView === 'clients'" class="content">
+      <!-- Vista de gestión de clientes -->
+      <div class="header">
+        <div class="actions">
+          <button mat-raised-button color="primary">New</button>
+          <button mat-raised-button color="accent">Export</button>
+        </div>
+      </div>
+      <div class="search-section">
+        <mat-form-field class="search-input">
+          <input matInput placeholder="Enter shared key">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Advanced Search</button>
+      </div>
+      <h1>Clients</h1>
+      <!-- Tabla de clientes -->
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8 full-width-table">
+        <ng-container matColumnDef="sharedKey">
+          <mat-header-cell *matHeaderCellDef> Shared Key </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.sharedKey}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="businessID">
+          <mat-header-cell *matHeaderCellDef> Business ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.businessID}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+          <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dateAdded">
+          <mat-header-cell *matHeaderCellDef> Date Added </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.dateAdded}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <div *ngIf="activeView === 'construction'" class="content">
+      <!-- Página en construcción -->
+      <h1>No disponible</h1>
+      <p>This page is under construction. Please check back later.</p>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
